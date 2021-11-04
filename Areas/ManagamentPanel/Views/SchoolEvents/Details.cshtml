@@ -1,0 +1,61 @@
+﻿@model ResatSahinProje2021.Models.SchoolEvents
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Etkinlikler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Başlangıç
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Açıklama
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+           Tarih
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShareDate)
+        </dd>
+
+        <dt>
+            Resim
+        </dt>
+
+        <dd>
+
+                <img src="@Model.ImageUrl" width="25%" />
+     
+        </dd>
+
+        <dt>
+            Aktiflik :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.EventId }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

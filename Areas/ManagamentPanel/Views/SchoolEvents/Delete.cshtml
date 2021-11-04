@@ -1,0 +1,67 @@
+﻿@model ResatSahinProje2021.Models.SchoolEvents
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SİL</h2>
+
+<h3>Bunu silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Etkinlikler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Başlık
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+           Açıklama
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Tarih
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShareDate)
+        </dd>
+
+        <dt>
+            Resim
+        </dt>
+
+        <dd>
+     
+                <img src="@Model.ImageUrl" width="25%" />
+            
+        </dd>
+
+        <dt>
+           Aktiflik :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

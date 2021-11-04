@@ -1,0 +1,51 @@
+﻿@model ResatSahinProje2021.Models.Branches
+@{
+    ViewBag.Title = "Alanlar";
+    ViewBag.Title2 = "Anasayfa";
+    ViewBag.DetailName = Model.Name.ToString();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+<section class="blog_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+
+
+                <div class="blog_post">
+                    <h3 style="text-align:center">@Model.Name</h3>
+                    <div class="post_by d-flex">
+                        @*<span>By - <a href="#" title="" class="bloger_name">Cavien Piterson</a></span>
+                            <span>Posted On : Fab 14 2019</span>
+                            <span><a href="#" title="">Your Category Name</a></span>*@
+                    </div>
+                    <center>
+
+                        <img src="@Model.ImageUrl" alt="" class="img-fluid center">
+                    </center>
+
+
+                    <div class="postpage_content_wrapper">
+
+                        <div class="blog_post_content">
+                            <p>@Model.Description</p>
+
+                            <!-- Blog Comment Wrappper-->
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> <!-- End Blog Left Side-->
+            <!-- ./ End  Blog Right Side-->
+
+        </div>
+    </div>
+</section>
+

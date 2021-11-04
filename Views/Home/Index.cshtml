@@ -1,0 +1,190 @@
+﻿<@Page Language="C#" MasterPageFile="~/Views/Shared/_Layout.cshtml" Inherits="System.Web.Mvc.ViewPage">
+    @model ResatSahinProje2021.Models.ViewModels.IndexViewModel
+    @{
+        ViewBag.Title = "Anasayfa";
+        byte counter = 1;
+    }
+    @section Header{
+
+        @Html.Partial("_Header", true)
+    }
+
+    <!-- ./ End Register Area section -->
+    <section class="unlimited_possibilities" style="background-image:url(../../Content/images/footer_bg_shpe_1.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12" >
+                    <div class="sub_title">
+                        <hr />
+                        <h3>HAKKIMIZDAKİ BİLGİLERE ULAŞIN</h3>
+                        <hr />
+                        @*<p>Okulumuz hakkında Tarihçe Vizyonumuz ve Misyonumuz:</p>*@
+                    </div><!-- ends: .section-header -->
+                </div>
+                @{
+                    foreach (var about in Model.Abouts.Take(3))
+                    {
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                            <div class="single_item single_item_first">
+                                <div class="icon_wrapper">
+                                    <i class="flaticon-university"></i>
+                                </div>
+                                <div class="blog_title">
+                                    <h3><a href="#!" title="">Okulumuz Hakkındaki Bilgiler</a></h3>
+                                    <a href="@Url.Action("About","Home")" style="">Görüntüle>></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="single_item single_item_first">
+                            <div class="icon_wrapper">
+                                <i class="flaticon-university"></i>
+                            </div>
+                            <div class="blog_title">
+                                <h3><a href="#!" title="">Etkinlikler<br /></a></h3>
+                                <pre></pre>
+                                <a href="@Url.Action("SchoolEvents","Home")" style="">Görüntüle>></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="single_item single_item_first">
+                            <div class="icon_wrapper">
+                                <i class="flaticon-university"></i>
+                            </div>
+                            <div class="blog_title">
+                                <h3><a href="#!" title="">SIKÇA SORULAN SORULAR[SSS]</a></h3>
+                                <a href="@Url.Action("FAQ","Home")" style="">Görüntüle>></a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </section>
+
+    <section class="events-area"  style="background-image:url(../../Content/images/footer_bg_shpe_1.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="sub_title">
+                        <hr />
+                        <h3>DUYURULAR</h3>
+                        <hr />
+                    </div>
+                </div>
+                @foreach (var duyuru in Model.Announcements.Take(3))
+                {
+
+
+                    if (counter == 1)
+                    {
+
+                        <div class="col-sm-12 events_full_box">
+                            <div class="events_single">
+                                <div class="event_banner">
+                                    <a href="#"><img style="width:50%; " src="@duyuru.ImageUrl" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="event_info">
+                                    <h3><a href="#" title="">@duyuru.Title<br> </a></h3>
+                                    <div class="events_time">
+                                        <span class="time"><i class="far fa-clock"></i>@duyuru.PublishDate</span>
+                                        @*<span><i class="fas fa-map-marker-alt"></i>@Model.</span>*@
+                                    </div>
+                                    <p>@duyuru.Description</p>
+                                    <div class="event_dete">
+                                        @*<span class="date">@duyuru.PublishDate</span>*@
+                                        @*<span>Jan</span>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        counter++;
+                    }
+                    else
+                    {
+
+                        <div class="col-sm-12 events_full_box">
+                            <div class="events_single events_single_left">
+                                <div class="event_info">
+                                    <h3><a href="#" title="">@duyuru.Title</a></h3>
+                                    <div class="events_time">
+                                        <span class="time"><i class="far fa-clock"></i>@duyuru.PublishDate</span>
+
+                                    </div>
+                                    <p> @duyuru.Description</p>
+                                </div>
+                                <div class="event_banner">
+                                    <a href="#"><img style="width:50%;" src="@duyuru.ImageUrl" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="event_dete">
+                                    <span class="date"></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        counter--;
+                    }
+
+                }
+
+                @*<div class="pagination_blog">
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li class="current"><a href="#">2</a></li>
+                            <li><a href="#" class=""><i class="flaticon-right-arrow"></i></a></li>
+                        </ul>
+                    </div>*@
+            </div>
+        </div>
+    </section>
+    <section class="our_instructors" style="background-image:url(../../Content/images/footer_bg_shpe_1.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="sub_title">
+                        <hr />
+                        <h3>KADROMUZ</h3>
+                        <hr />
+                    </div>
+                </div>
+                @{
+
+                    foreach (var teacher in Model.SecondaryTeachers.Where(u => u.IsPrincipal == true).Take(3))
+                    {
+                        <div class="single-wrappe col-12 col-sm-6 col-md-4 col-lg-4">
+                            <div class="team-single-item">
+                                <figure>
+                                    <div class="member-img">
+                                        <div class="teachars_pro">
+                                            <img src="@teacher.ImageUrl" alt="member img" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <br />
+
+                                            <h4><a  title="">@teacher.Name @teacher.Surname</a></h4>
+                                            <span>@teacher.LessonName</span>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+        <a href="@Url.Action("Teacher","Home")" class="btn btn-primary" style="margin-left:5%">Tüm Kadro>></a><!--Kadro Düğmesi-->
+    </section>
+
+
+
+

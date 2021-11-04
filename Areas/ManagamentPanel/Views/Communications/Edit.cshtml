@@ -1,0 +1,58 @@
+﻿@model ResatSahinProje2021.Models.Communications
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>İletişim</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CommunicatonId)
+
+        <div class="form-group">
+  
+            <div class="col-md-10">
+                <h4>Ad</h4>
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = "" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <h4>Numara/Adres</h4>
+                @Html.EditorFor(model => model.Info, new { htmlAttributes = new { @class = "form-control", required = "" } })
+                @Html.ValidationMessageFor(model => model.Info, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <h4>Aktiflik :</h4>
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>

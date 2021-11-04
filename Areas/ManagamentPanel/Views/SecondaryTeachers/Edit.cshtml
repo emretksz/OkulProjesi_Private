@@ -1,0 +1,87 @@
+﻿@model ResatSahinProje2021.Models.SecondaryTeachers
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Düzenle</h2>
+
+@using (Html.BeginForm("Edit", "SecondaryTeachers", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    <h4 class="bg-danger col-6">Bu Bölümde Okulun İdarecileri de Eklenecektir! (Müdür,İdare vs)</h4>
+    <h4 class="bg-danger col-6"> Ders Veren Öğretmenler de Bu Bölümde Girilektir! (Tarih,Coğrafya)</h4>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.STeacherId)
+
+    <div class="form-group">
+        Ad:
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Soyad:
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Resim:
+        <div class="col-md-10">
+            <img src="@Model.ImageUrl" style="width:100px;height:100px" />
+            <hr />
+            <h4 class="bg-danger">Resim boyutu 540x540 boyutunda olmak zorunda daha büyük bir resim eklerseniz sistem otomatik olarak 540x540 boyutuna dönüştürecektir</h4>
+            <hr />
+            <input type="file" name="img" value="" />
+
+            @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Ders/Konum(İdareci ise İdare yazarak belirtiniz):
+        <h6 class="bg-danger col-3"> İlk Harfleri Büyük Yazınız!</h6>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LessonName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LessonName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Aktiflik:
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsActive)
+                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        İdareci:
+        <h4 class="bg-danger col-6"> Belirtilen Kişi İdareci İse İdareci Seçeneğine Tıklayınız</h4>
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsPrincipal)
+                @Html.ValidationMessageFor(model => model.IsPrincipal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Kaydet" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>

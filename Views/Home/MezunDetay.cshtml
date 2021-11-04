@@ -1,0 +1,42 @@
+﻿@model ResatSahinProje2021.Models.GraduateArchives
+@{
+    ViewBag.Title = "Mezunlar";
+    ViewBag.Title2 = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+<section class="our_instructors" id="instructors_page">
+
+    <div class="container">
+        <div class="row">
+            @foreach (var mezun in Model.Graduates)
+            {
+
+                <div class="single-wrapper col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="team-single-item">
+                        <figure>
+                            <div class="member-img">
+                                <div class="teachars_pro">
+                                    <img src="@mezun.ImageUrl" class="img-fluid">
+                                </div>
+                            </div>
+                            <br />
+                            <figcaption>
+                                <div class="member-name">
+                                    <h4><a href="#!" title="">@mezun.Name @mezun.Surname</a></h4>
+                                    <h4><a href="#!" title="">@mezun.GraduateArchives.YearsName</a></h4>
+                                    <span></span>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

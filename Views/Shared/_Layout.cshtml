@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Ecology Theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mask-icon" content="https://iconape.com/wp-content/png_logo_vector/meb-milli-egitim-bakanligi-logo.png" />
+    <title>GüzelYurt Meslek Lisesi</title>
+
+
+    @Html.Partial("_Css")
+
+</head>
+<body >
+
+    @RenderSection("Header", false)
+    @RenderSection("Slider", false)
+
+
+
+    <!--  End header section-->
+    <!-- ./ End Register Area section -->
+    @*@RenderSection("_Header1", false)*@
+
+    @RenderBody()<!-- ./ End Our Instructiors -->
+    <!-- End Team Group -->
+    <!-- Footer -->
+    @Html.Partial("_Footer")<!-- End Footer -->
+
+    <section id="scroll-top" class="scroll-top">
+        <h2 class="disabled">Scroll to top</h2>
+        <div class="to-top pos-rtive">
+            <a href="#"><i class="flaticon-right-arrow"></i></a>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+
+
+@Html.Partial("_Scripts")
+ 
+    <!-- =========================================================
+         STYLE SWITCHER | ONLY FOR DEMO NOT INCLUDED IN MAIN FILES
+    ============================================================== -->
+
+
+
+</body>
+</html>

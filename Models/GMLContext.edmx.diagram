@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c70e52d9b894db582295e3300d489ec" Name="Diagram1">
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Abouts" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.AboutsImages" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Announcements" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Branches" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.BranchSampleImages" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Communications" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.FAQS" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.GraduateArchives" Width="1.5" PointX="5.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Graduates" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Roles" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.SchoolEvents" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.SecondaryTeachers" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Sliders" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Teachers" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GML_Website_2021_DbModel.Users" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="GML_Website_2021_DbModel.FK_AboutsImages_Abouts" ManuallyRouted="false" />
+        <AssociationConnector Association="GML_Website_2021_DbModel.FK_BranchSampleImages_Branches" ManuallyRouted="false" />
+        <AssociationConnector Association="GML_Website_2021_DbModel.FK_Teachers_Branches" ManuallyRouted="false" />
+        <AssociationConnector Association="GML_Website_2021_DbModel.FK_Graduates_GraduateArchives" ManuallyRouted="false" />
+        <AssociationConnector Association="GML_Website_2021_DbModel.FK_Users_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

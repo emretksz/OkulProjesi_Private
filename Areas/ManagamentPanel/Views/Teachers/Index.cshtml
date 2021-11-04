@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ResatSahinProje2021.Models.Teachers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Öğretmenler</h2>
+
+<p>
+    @Html.ActionLink("Yeni Kayıt Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+          Öğretmen Adı
+        </th>
+        <th>
+          Soyadı
+        </th>
+        <th>
+          Durumu
+        </th>
+        <th>
+            Alanı
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Surname)
+    </td>
+
+    <td>
+        @if (item.IsActive == true)
+        {
+            @Html.DisplayName("Aktif");
+        }
+        else
+        {
+            @Html.DisplayName("Pasif");
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Branches.Name)
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.TeacherId }) |
+        @Html.ActionLink("Detaylar", "Details", new { id = item.TeacherId }) |
+        @Html.ActionLink("Sil", "Delete", new { id = item.TeacherId })
+    </td>
+</tr>
+}
+
+</table>

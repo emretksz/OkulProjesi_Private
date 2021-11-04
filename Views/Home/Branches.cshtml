@@ -1,0 +1,56 @@
+﻿@model ResatSahinProje2021.Models.ViewModels.BranchViewModel
+@{
+    ViewBag.Title = "Alanlar";
+    ViewBag.Title2 = "Anasayfa";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+
+
+<section class="popular_courses" id="popular_courses_page"style="background-image:url(../../Content/images/footer_bg_shpe_1.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="sub_title">
+                    <hr />
+                    <h3>ALANLAR</h3>
+                    <hr />
+                </div>
+            </div>
+            @foreach (var branch in Model.Branches)
+            {
+                if (branch.Name != "Müdür" && branch.Name != "İdare" && branch.Name != "Rehberlik")
+                {
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="single-courses">
+                            <div class="courses_banner_wrapper">
+                                <div class="courses_banner"><a href="#!"><img src="@branch.ImageUrl" alt="" class="img-fluid"></a></div>
+                                <div class="purchase_price">
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="courses_info_wrapper">
+                                <div class="courses_title">
+                                    <h3><a href="#!">@branch.Name</a></h3>
+
+                                </div>
+                                <div class="courses_info">
+                                    <ul class="list-unstyled">
+                                    </ul>
+                                    <a href="@Url.Action("BranchDetails","Home", new { id=branch.BranchId})" class="cart_btn">Görüntüle</a>
+                                </div>
+                            </div>
+                        </div><!-- Ends: .single courses -->
+                    </div><!-- Ends: . -->
+                }
+
+            }
+        </div>
+
+    </div>
+</section>

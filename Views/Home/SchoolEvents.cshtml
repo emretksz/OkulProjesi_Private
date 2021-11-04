@@ -1,0 +1,82 @@
+﻿@*@model ResatSahinProje2021.Models.ViewModels.SchoolEventsViewModel*@
+@model  PagedList.IPagedList<ResatSahinProje2021.Models.SchoolEvents>
+@using PagedList;
+
+@{
+    ViewBag.Title = "Etkinlikler";
+    ViewBag.Title2 = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+
+
+<section class="popular_courses" id="popular_courses_page"style="background-image:url(../../Content/images/footer_bg_shpe_1.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="sub_title">
+                    <hr />
+                    <h3>ETKİNLİKLER</h3>
+                    <hr />
+                </div>
+            </div>
+            @foreach (var sEvent in Model)
+            {
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                    <div class="single-courses">
+                        <div class="courses_banner_wrapper">
+                            <div class="courses_banner"><a href="#"><img src="@sEvent.ImageUrl" alt="" class="img-fluid"></a></div>
+                            <div class="purchase_price">
+                            </div>
+                        </div>
+                        <div class="courses_info_wrapper">
+                            <div class="courses_title">
+                                <h3><a href="#">@sEvent.Title</a></h3>
+                                <div class="teachers_name">Tarih - <a href="#" title="">@sEvent.ShareDate.ToShortDateString()</a></div>
+                            </div>
+
+                        </div>
+                    </div><!-- Ends: .single courses -->
+                </div><!-- Ends: . -->
+            }
+
+            <div class="pagination_blog">
+                <ul>
+                    @{
+                        int sayfaSayisi = Model.TotalItemCount / 2;
+                        if (Model.TotalItemCount % 2 == 0)
+                        {
+                        }
+                        else
+                        {
+                            sayfaSayisi++;
+                        }
+
+
+                    }
+                    @for (int i = 1; i < sayfaSayisi; i++)
+                    {
+
+                        if (i == 1)
+                        {
+                            <li class="@(ViewBag.PageNumber == 1 ? "current" : "")"><a href="@Url.Action("SchoolEvents", "Home", new { pagedNumber = 1 })">1</a></li>
+                        }
+                        else
+                        {
+
+                            <li class="@(ViewBag.PageNumber == i ? "current" : "")"><a href="@Url.Action("SchoolEvents", "Home", new { pagedNumber = i })">@i</a></li>
+                        }
+
+                    }
+
+                    @*<li><a href="#" class="@(ViewBag.PageNumber==?"current":"")"><i class="flaticon-right-arrow"></i></a></li>*@
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>

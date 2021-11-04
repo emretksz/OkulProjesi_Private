@@ -1,0 +1,67 @@
+﻿@model List<ResatSahinProje2021.Models.Graduates>
+@{
+    ViewBag.Title = "Mezunlar";
+    ViewBag.Title2 = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<object> Depo = new List<object>();
+    int sayac = 0;
+}
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+<section class="our_instructors" id="instructors_page"style="background-image:url(../../Content/images/footer_bg_shpe_1.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="sub_title">
+                    <hr />
+                    <h3>MEZUNLAR</h3>
+                    <hr />
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+
+                <div class="single-wrapper col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="team-single-item">
+                        <figure>
+                            <div class="member-img">
+                                <div class="teachars_pro">
+
+                                </div>
+                            </div>
+
+                            <figcaption>
+                                <div class="member-name">
+
+
+                                    @*<h4><a href="@Url.Action("MezunDetay","Home",new { id=item.GraduateArchives.ArchiveId})" title="">@item.GraduateArchives.YearsName</a></h4>*@
+                                    @if (Depo.Contains(item.GraduateArchives.YearsName))
+                                    {
+
+                                    }
+                                    else
+                                    {
+
+                                        <h4><a href="@Url.Action("MezunDetay","Home",new { id=item.GraduateArchives.ArchiveId})" title="">@item.GraduateArchives.YearsName</a></h4>
+                                        Depo.Add(item.GraduateArchives.YearsName);
+                                        <hr style="border:solid" />
+                                    }
+
+
+
+
+                                    <span></span>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+

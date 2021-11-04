@@ -1,0 +1,57 @@
+﻿@model ResatSahinProje2021.Models.Graduates
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SİL</h2>
+
+<h3>Bunu silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Mezunlar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           İsim
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+           Soyisim
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            Resim
+        </dt>
+
+        <dd>
+            <img src="@Model.ImageUrl" width="25%" />
+        </dd>
+
+        <dt>
+            Alan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraduateArchives.YearsName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

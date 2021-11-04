@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ResatSahinProje2021.Models.FAQS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sıkça Sorulan Sorular (SSS)</h2>
+
+<p>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Soru:
+        </th>
+        <th>
+          Cevap:
+        </th>
+        <th>
+            Aktiflik:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @if (item.IsActive)
+            {
+                <p>Aktif</p>
+            }
+            else
+            {
+                <p>Pasif</p>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.FaqsId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.FaqsId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ResatSahinProje2021.Models.Communications>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>İletişim</h2>
+
+<p>
+    @Html.ActionLink("Yeni Kayıt Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+          İletişim Adı
+        </th>
+        <th>
+          Adres
+        </th>
+        <th>
+        Durumu
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Info)
+    </td>
+    <td>
+
+    @if (item.IsActive == true)
+    {
+        @Html.DisplayName("Aktif");
+    }
+    else
+    {
+        @Html.DisplayName("Pasif");
+    }
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.CommunicatonId }) |
+        @Html.ActionLink("Detay", "Details", new { id = item.CommunicatonId }) |
+        @Html.ActionLink("Sil", "Delete", new { id = item.CommunicatonId })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,68 @@
+﻿@model ResatSahinProje2021.Models.Graduates
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Düzenle</h2>
+
+@using (Html.BeginForm("Edit", "Graduates", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Mezunlar</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.GraduateId)
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <h4>Öğrenci Adı</h4>
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = "" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <h4>Soyadı</h4>
+                @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", required = "" } })
+                @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <h4>Resim Yükle</h4>
+                <h4 class="bg-danger">Resim boyutu 540x540 boyutunda olmak zorunda daha büyük bir resim eklerseniz sistem otomatik olarak 540x540 boyutuna dönüştürecektir</h4>
+
+                <img src="@Model.ImageUrl" width="25%" alt="Alternate Text" />
+                <input type="file" name="imgFile" value="" required="" />
+
+                @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <h4>Alan</h4>
+                @Html.DropDownList("ArchiveId", null, htmlAttributes: new { @class = "form-control", required = "" })
+                @Html.ValidationMessageFor(model => model.ArchiveId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>

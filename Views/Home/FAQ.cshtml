@@ -1,0 +1,89 @@
+﻿@model List<ResatSahinProje2021.Models.FAQS>
+@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    byte counter = 1;
+}
+<script src=""></script>
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+<section class="events-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="sub_title">
+                    <hr />
+                    <h3>SIKÇA SORULAN SORULAR</h3>
+                    <hr />
+                </div>
+            </div>
+            @foreach (var sorular in Model)
+            {
+
+
+                if (counter == 1)
+                {
+
+                    <div class="col-sm-12 events_full_box">
+                        <div class="events_single">
+                            <div class="event_banner">
+                                <a href="#"><img style="width:50%; " src="~/Content/images/question-question-mark-help-response.jpg" alt="" class="img-fluid"></a>
+                            </div>
+                            <div class="event_info">
+                                <h3><a href="#" title="">@sorular.Title<br> </a></h3>
+                                <hr />
+                                <div class="events_time">
+
+                                    @*<span><i class="fas fa-map-marker-alt"></i>@Model.</span>*@
+                                </div>
+                                <p>@sorular.Description</p>
+                                <div class="event_dete">
+                                    @*<span class="date">@duyuru.PublishDate</span>*@
+                                    @*<span>Jan</span>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    counter++;
+                }
+                else
+                {
+
+                    <div class="col-sm-12 events_full_box">
+                        <div class="events_single events_single_left">
+                            <div class="event_info">
+                                <h3><a href="#" title="">@sorular.Title</a></h3>
+                                <div class="events_time">
+
+
+                                </div>
+                                <p> @sorular.Description</p>
+                            </div>
+
+                            <div class="event_banner">
+                                <a href="#"><img style="width:50%;" src="~/Content/images/question-question-mark-help-response.jpg" alt="" class="img-fluid"></a>
+                            </div>
+                            <div class="event_dete">
+                                <span class="date"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    counter--;
+                }
+            }
+
+            @*<div class="pagination_blog">
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li class="current"><a href="#">2</a></li>
+                        <li><a href="#" class=""><i class="flaticon-right-arrow"></i></a></li>
+                    </ul>
+                </div>*@
+        </div>
+    </div>
+</section>

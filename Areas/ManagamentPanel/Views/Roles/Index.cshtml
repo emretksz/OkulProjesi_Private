@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ResatSahinProje2021.Models.Roles>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Roller</h2>
+
+<p>
+    @Html.ActionLink("Rol Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Rol Adı
+        </th>
+        <th>
+            Durumu
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    @if (item.IsActive == true)
+    {
+        @Html.DisplayName("Aktif");
+    }
+    else
+    {
+        @Html.DisplayName("Pasif");
+    }
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.RoleId }) |
+        @Html.ActionLink("Detaylar", "Details", new { id = item.RoleId }) |
+        @Html.ActionLink("Sil", "Delete", new { id = item.RoleId })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,43 @@
+﻿@model ResatSahinProje2021.Models.Abouts
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Abouts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Başlık
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dd>
+            <strong>Resim</strong>
+        </dd>
+        <dd>
+            @foreach (var item in Model.AboutsImages)
+            {
+                <img src="@item.ImageUrl" width="25%" />
+            }
+        </dd>
+        <dt>
+            Açıklama
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.AboutsId }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ResatSahinProje2021.Models.Graduates>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mezun Öğrenci Ekle</h2>
+
+<p>
+    @Html.ActionLink("Yeni Kayıt Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+        Öğrencinin Adı
+        </th>
+        <th>
+            Soyadı
+        </th>
+
+        <th>
+       Alan
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.GraduateArchives.YearsName)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.GraduateId }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.GraduateId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.GraduateId })
+        </td>
+    </tr>
+}
+
+</table>

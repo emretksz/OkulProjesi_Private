@@ -1,0 +1,111 @@
+﻿@model ResatSahinProje2021.Models.ViewModels.TeachersViewModel
+@{
+    ViewBag.Title = "Öğretmenler";
+    ViewBag.Title2 = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+
+
+
+<section class="our_instructors" id="instructors_page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="sub_title">
+                    <hr />
+                    <h3>KADROMUZ</h3>
+                    <hr />
+                </div>
+            </div>
+
+            @foreach (var teacher in Model.SecondaryTeachers)
+            {
+
+                if (teacher.IsPrincipal == true)
+                { 
+                    <div class="single-wrapper col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="team-single-item">
+                            <figure>
+                                <div class="member-img">
+                                    <div class="teachars_pro">
+                                        <img src="@teacher.ImageUrl" class="img-fluid">
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+
+                                <figcaption>
+                                    <div class="member-name">
+                                        <h4><a href="#!" title="">@teacher.Name @teacher.Surname</a></h4>
+                                        <span>@teacher.LessonName</span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                }
+
+            }
+
+
+            @foreach (var teacher in Model.Teachers)
+            {
+                string a = Model.Branches.Where(u => u.BranchId == teacher.BranchId).First().Name;
+      
+                <div class="single-wrapper col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="team-single-item">
+                        <figure>
+                            <div class="member-img">
+                                <div class="teachars_pro">
+                                    <img src="@teacher.ImageUrl" class="img-fluid">
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+
+                            <figcaption>
+                                <div class="member-name">
+                                    <h4><a href="#!" title="">@teacher.Name @teacher.Surname</a></h4>
+
+                                    <span>@a</span>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            }
+
+            @foreach (var teacher in Model.SecondaryTeachers.Where(u => u.IsPrincipal != true))
+            {
+                <div class="single-wrapper col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="team-single-item">
+                        <figure>
+                            <div class="member-img">
+                                <div class="teachars_pro">
+                                    <img src="@teacher.ImageUrl" class="img-fluid">
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+
+                            <figcaption>
+                                <div class="member-name">
+                                    <h4><a href="#!" title="">@teacher.Name @teacher.Surname</a></h4>
+
+                                    <span>@teacher.LessonName</span>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

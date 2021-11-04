@@ -1,0 +1,116 @@
+﻿@model PagedList.IPagedList<ResatSahinProje2021.Models.Announcements>
+@{
+    ViewBag.Title = "Duyurular";
+    ViewBag.Title2 = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    byte counter = 1;
+}
+
+@section Slider{
+
+    @Html.Partial("_Slider2", true)
+}
+
+<section class="events-area"style="background-image:url(../../Content/images/footer_bg_shpe_1.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="sub_title">
+                    <hr />
+                    <h3>DUYURULAR</h3>
+                    <hr />
+                </div>
+            </div>
+            @foreach (var duyuru in Model)
+            {
+
+
+
+                if (counter == 1)
+                {
+
+                    <div class="col-sm-12 events_full_box">
+                        <div class="events_single">
+                            <div class="event_banner">
+                                <a href="#"><img style="width:50%; " src="@duyuru.ImageUrl" alt="" class="img-fluid"></a>
+                            </div>
+                            <div class="event_info">
+                                <h3><a href="#" title="">@duyuru.Title<br> </a></h3>
+                                <div class="events_time">
+                                    <span class="time"><i class="far fa-clock"></i>@duyuru.PublishDate</span>
+                                    @*<span><i class="fas fa-map-marker-alt"></i>@Model.</span>*@
+                                </div>
+                                <p>@duyuru.Description</p>
+                                <div class="event_dete">
+                                    @*<span class="date">@duyuru.PublishDate</span>*@
+                                    @*<span>Jan</span>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    counter++;
+                }
+                else
+                {
+
+                    <div class="col-sm-12 events_full_box">
+                        <div class="events_single events_single_left">
+                            <div class="event_info">
+                                <h3><a href="#" title="">@duyuru.Title</a></h3>
+                                <div class="events_time">
+                                    <span class="time"><i class="far fa-clock"></i>@duyuru.PublishDate</span>
+
+                                </div>
+                                <p> @duyuru.Description</p>
+                            </div>
+                            <div class="event_banner">
+                                <a href="#"><img style="width:50%;" src="@duyuru.ImageUrl" alt="" class="img-fluid"></a>
+                            </div>
+                            <div class="event_dete">
+                                <span class="date"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    counter--;
+                }
+            }
+            <div class="pagination_blog">
+                <ul>
+                    @{
+                        int sayfaSayisi = Model.Count() / 2;
+
+
+                    }
+                    @for (int i = 1; i < sayfaSayisi; i++)
+                    {
+
+                        if (i == 1)
+                        {
+                            <li class="@(ViewBag.PageNumber == 1 ? "current" : "")"><a href="@Url.Action("Announcements", "Home", new { pagedNumber = 1 })">1</a></li>
+                        }
+                        else
+                        {
+
+                            <li class="@(ViewBag.PageNumber == i ? "current" : "")"><a href="@Url.Action("Announcements", "Home", new { pagedNumber = i })">@i</a></li>
+                        }
+
+                    }
+
+                    @*<li><a href="#" class="@(ViewBag.PageNumber==?"current":"")"><i class="flaticon-right-arrow"></i></a></li>*@
+                </ul>
+            </div>
+
+            @*<div class="pagination_blog">
+            <ul>
+                <li><a href="#">1</a></li>
+                <li class="current"><a href="#">2</a></li>
+                <li><a href="#" class=""><i class="flaticon-right-arrow"></i></a></li>
+            </ul>
+        </div>*@
+        </div>
+    </div>
+</section>

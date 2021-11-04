@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ResatSahinProje2021.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagamentPanel/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("Kayıt Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+         kullanıcı Adı
+        </th>
+        <th>
+          Mail Adresi
+        </th>
+       
+        <th>
+      Durumu
+        </th>
+        <th>
+          Kayıt Tarihi
+        </th>
+        <th>
+          Rolü
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mail)
+    </td>
+
+    @if (item.IsActive == true)
+    {
+        @Html.DisplayName("Aktif");
+    }
+    else
+    {
+        @Html.DisplayName("Pasif");
+    }
+    <td>
+        @Html.DisplayFor(modelItem => item.RegisterDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Roles.Name)
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.UserId }) |
+        @Html.ActionLink("Detaylar", "Details", new { id = item.UserId }) |
+        @Html.ActionLink("Sil", "Delete", new { id = item.UserId })
+    </td>
+</tr>
+}
+
+</table>

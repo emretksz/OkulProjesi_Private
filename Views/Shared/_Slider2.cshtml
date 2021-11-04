@@ -1,0 +1,65 @@
+﻿
+<header class="header_inner about_page">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <div class="header_top" style="background-color:rgba(0,31,128,0.8)">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-lg-12">
+                    <div class="info_wrapper" @*style="background: @ViewBag.deneme*@">
+                        <div class="contact_info">
+                            <ul class="list-unstyled">
+                                <li><i ></i> </li>
+                                <li><i></i> </li>
+                            </ul>
+                        </div>
+                        <div class="login_info">
+                            <ul class="d-flex">
+                                <li class="nav-item"><a href="@Url.Action( "Git","Home")" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Giriş Yap</a></li>
+                            </ul>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="edu_nav" style="background-color:rgba(0,31,128,0.6);">
+        <div class="container">
+           
+            <nav class="navbar navbar-expand-md navbar-light bg-faded">
+                <a class="navbar-brand" href="@Url.Action("Index","Home")"> </a>
+                <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent" style="display: block;">
+                    <ul class="navbar-nav nav lavalamp ml-auto menu">
+
+
+
+                        @*<li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                        <ul class="navbar-nav nav mx-auto">
+                            <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li>
+                            <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li>
+                            <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
+                            <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
+                        </ul>
+                    </li>*@
+
+                        <li class="nav-item" style="color: aliceblue"><a href="@Url.Action("Index","Home")" class="nav-link  ">Anasayfa</a></li>
+                        <li class="nav-item" style="color: aliceblue"><a href="@Url.Action("About","Home")" class="nav-link @(ViewContext.RouteData.Values["action"].ToString()=="About"?"active":" ") ">Hakkımızda</a></li>
+                        <li class="nav-item" style="color: aliceblue"> <a href="@Url.Action("Branches","Home")" class="nav-link @(ViewContext.RouteData.Values["action"].ToString()=="Branches"?"active":" ")">Alanlar</a></li>
+                        <li class="nav-item" style="color: aliceblue"> <a href="@Url.Action("SchoolEvents","Home")" class="nav-link @(ViewContext.RouteData.Values["action"].ToString()=="SchoolEvents"?"active":" ")">Etkinlikler</a></li>
+                        <li class="nav-item" style="color: aliceblue"><a href="@Url.Action("Teacher","Home")" class="nav-link @(ViewContext.RouteData.Values["action"].ToString()=="Teacher"?"active":" ")">Öğretmenler</a></li>
+                        <li class="nav-item" style="color: aliceblue"><a href="@Url.Action("Announcements","Home")" class="nav-link @(ViewContext.RouteData.Values["action"].ToString()=="Announcements"?"active":" ")">Duyurular</a></li>
+                        <li class="nav-item" style="color: aliceblue"><a href="@Url.Action("Contact","Home")" class="nav-link @(ViewContext.RouteData.Values["action"].ToString()=="Contact"?"active":" ")">İletişim</a></li>
+                        <li class="nav-item" style="color: aliceblue"><a href="@Url.Action("Mezunlar","Home")" class="nav-link   @(ViewContext.RouteData.Values["action"].ToString()=="Mezunlar"?"active":" ")">Mezunlar</a></li>
+                    </ul>
+                </div>
+            </nav><!-- END NAVBAR -->
+        </div>
+    </div>
+
+  
+</header>
